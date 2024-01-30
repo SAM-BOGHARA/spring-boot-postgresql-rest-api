@@ -19,16 +19,16 @@ import jakarta.transaction.Transactional;
 @Service
 public class VehicleService {
     @Autowired
-    ManufacturerRepository manufacturerRepository;
-
-    @Autowired
-    VehicleRepository vehicleRepository;
-
-    @Autowired
     CarRepository carRepository;
 
     @Autowired
+    ManufacturerRepository manufacturerRepository;
+
+    @Autowired
     MotorBikeRepository motorBikeRepository;
+
+    @Autowired
+    VehicleRepository vehicleRepository;
 
     @Transactional
     public List<Car> addCars(List<Car> cars) {
@@ -36,7 +36,7 @@ public class VehicleService {
     }
 
     public List<Manufacturer> addManufacturers(List<Manufacturer> manufacturers) {
-        return manufacturerRepository.saveAll(manufacturers)
+        return manufacturerRepository.saveAll(manufacturers);
     }
 
     public List<MotorBike> addMotorBikes(List<MotorBike> motorbikes) {
@@ -47,19 +47,19 @@ public class VehicleService {
         return vehicleRepository.saveAll(vehicles);
     }
 
-    public List<Manufacturer> getManufacturers() {
-        return manufacturerRepository.findAll();
-    }
-
-    public List<Vehicle> getVehicles() {
-        return vehicleRepository.findAll();
-    }
-
     public List<Car> getCars() {
         return carRepository.findAll();
     }
 
+    public List<Manufacturer> getManufacturers() {
+        return manufacturerRepository.findAll();
+    }
+
     public List<MotorBike> getMotorBikes() {
         return motorBikeRepository.findAll();
+    }
+
+    public List<Vehicle> getVehicles() {
+        return vehicleRepository.findAll();
     }
 }
